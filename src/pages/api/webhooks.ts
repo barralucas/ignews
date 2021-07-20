@@ -53,8 +53,6 @@ export default async function webhooks(req: NextApiRequest, res: NextApiResponse
                     case 'customer.subscription.deleted':
                         const subscription = event.data.object as Stripe.Subscription;
 
-                        console.log(subscription, 'sub');
-
                         await saveSubscription(
                             subscription.id,
                             subscription.customer.toString(),
